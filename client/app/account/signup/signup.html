@@ -59,8 +59,10 @@
           <label>Your Native Language</label>
 
           <select data-ng-model="user.nativeLanguage" name="language" data-ng-options="a.language for a in languages"
-            required mongoose-error>                
+            required mongoose-error>
+            <option value=''>Choose Language</option>                
           </select>
+            
           <p class="help-block"
              ng-show="(form.language.$error.required) && submitted">
             You must choose your native language.

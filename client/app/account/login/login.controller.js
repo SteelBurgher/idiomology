@@ -15,7 +15,7 @@ angular.module('idiomologyApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/my-idioms');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

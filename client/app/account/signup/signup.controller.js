@@ -7,8 +7,9 @@ angular.module('idiomologyApp')
     $scope.languages = [{"language": "Arabic"}, 
       {"language": "French"}, 
       {"language": "German"}, 
-      {"language": "Arabic"}];
-      
+      {"language": "Arabic"},
+      {"language": "Other"}];
+
     $scope.register = function(form) {
       $scope.submitted = true;
 
@@ -16,11 +17,12 @@ angular.module('idiomologyApp')
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          language: $scope.user.nativeLanguage
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          $location.path('/my-idioms');
         })
         .catch( function(err) {
           err = err.data;
