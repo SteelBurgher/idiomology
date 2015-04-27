@@ -8,6 +8,12 @@
     <h4 class="text-left"><a ng-class="{active: state === 'create'}" ng-click="getCreate()">Create Idiom</a></h4>
     </div>
   </div>
-  <div class="row" ng-show="state === 'find'">Finding</div>
-  <div class="row" ng-show="state === 'create'">Hiding</div>
+  <div class="row" ng-show="state === 'find'">
+    <div class="col-md-6">Search</div>
+    <div class="col-md-6">Add</div>
+  </div>
+  <div class="row" ng-show="state === 'create'">
+    <div class="col-md-6">Search</div>
+    <div class="col-md-6">Add</div>
+  </div>
 </div>
