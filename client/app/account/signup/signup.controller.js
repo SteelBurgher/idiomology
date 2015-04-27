@@ -18,7 +18,7 @@ angular.module('idiomologyApp')
           name: $scope.user.name,
           email: $scope.user.email,
           password: $scope.user.password,
-          language: $scope.user.nativeLanguage
+          language: $scope.user.nativeLanguage.language
         })
         .then( function() {
           // Account created, redirect to home
