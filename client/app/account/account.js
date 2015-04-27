@@ -18,5 +18,11 @@ angular.module('idiomologyApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('my-idioms', {
+        url: '/my-idioms',
+        templateUrl: 'app/account/my-idioms/my-idioms.html',
+        controller: 'MyIdiomsCtrl',
+        authenticate: true
       });
   });
