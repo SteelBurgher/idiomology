@@ -4,7 +4,11 @@ angular.module('idiomologyApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};
-
+    $scope.languages = [{"language": "Arabic"}, 
+      {"language": "French"}, 
+      {"language": "German"}, 
+      {"language": "Arabic"}];
+      
     $scope.register = function(form) {
       $scope.submitted = true;
 
