@@ -24,5 +24,9 @@ angular.module('idiomologyApp')
         templateUrl: 'app/account/my-idioms/my-idioms.html',
         controller: 'MyIdiomsCtrl',
         authenticate: true
+      })
+      .state('add-idiom', {
+        url: '/add-idiom',
+        templateUrl: 'app/account/add-idiom/add-idiom.html'
       });
   });
