@@ -1,6 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
-  <div class="col-md-12">
-  This is the add-idiom view.
+  <div class="row add-menu">
+    <div class="col-md-6 border-right">
+    <h4 class="text-right"><a ng-class="{active: state === 'find'}" ng-click="getFind()">Find Idiom</a></h4>
+    </div>
+    <div class="col-md-6">
+    <h4 class="text-left"><a ng-class="{active: state === 'create'}" ng-click="getCreate()">Create Idiom</a></h4>
+    </div>
   </div>
+  <div class="row" ng-show="state === 'find'">Finding</div>
+  <div class="row" ng-show="state === 'create'">Hiding</div>
 </div>

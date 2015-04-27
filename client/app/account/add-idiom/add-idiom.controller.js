@@ -2,5 +2,15 @@
 
 angular.module('idiomologyApp')
   .controller('AddIdiomCtrl', function ($scope) {
-    $scope.message = 'Hello';
+    
+    $scope.state = "find";
+
+    $scope.getFind = function() {
+      $scope.state = "find";
+    };
+
+    $scope.getCreate = function() {
+      $scope.state = "create";
+    };
+
   });

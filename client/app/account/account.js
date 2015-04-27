@@ -27,6 +27,8 @@ angular.module('idiomologyApp')
       })
       .state('add-idiom', {
         url: '/add-idiom',
-        templateUrl: 'app/account/add-idiom/add-idiom.html'
+        templateUrl: 'app/account/add-idiom/add-idiom.html',
+        controller: 'AddIdiomCtrl',
+        authenticate: true
       });
   });

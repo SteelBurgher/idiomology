@@ -1,0 +1,12 @@
+.border-right {
+  border-right: 3px solid #999;
+}
+
+.add-menu a {
+  cursor: pointer;
+  color: purple;
+  text-decoration: none;
+}
+.add-menu a.active {
+  color: blue;
+}
