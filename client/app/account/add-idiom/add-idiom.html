@@ -9,11 +9,86 @@
     </div>
   </div>
   <div class="row" ng-show="state === 'find'">
-    <div class="col-md-6">Search</div>
-    <div class="col-md-6">Add</div>
+    <div class="col-md-12" >
+      <h3 class="text-center">Search</h3>
+      <form class="form text-center searchForm" name="searchForm" ng-submit="searchForIdioms(searchQuery)" novalidate>
+        <label>Search for idioms</label>
+        <input type="text" name="idiomQuery" class="form-control" ng-model="searchQuery">
+        <button class="btn btn-inverse btn-lg btn-login text-center" type="submit">Search</button>
+      </form>
+      <div class='searchResult' ng-repeat='idiom in searchResults | filter:searchQuery'>
+        <div class="row">
+          <div class='col-md-9'>{{ idiom.text }}</div>
+          <div class='col-md-3'><button class="btn btn-inverse btn-lg text-center" ng-click="addThisIdiom(idiom)">Add To My Idioms</button></div>
+        </div>
+        <div class="row text-center">
+          <div class='col-md-6'>Context: {{ idiom.context }}</div>
+          <div class='col-md-6'>Origin:  {{ idiom.example }}</div>
+        </div>
+        <div class="row text-center">
+          <div>"{{ idiom.example }}"</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row" ng-show="state === 'create'">
-    <div class="col-md-6">Search</div>
-    <div class="col-md-6">Add</div>
+    <div class="col-md-6 text-center">
+    <h3>Idiom Info</h3>
+    <form class="form text-center" name="form" ng-submit="addIdiom()" novalidate>
+
+        <div class="form-group">
+          <label>Idiom</label>
+
+          <input type="text" name="idiom" class="form-control" ng-model="idiom.text" required>
+        </div>
+
+        <div class="form-group">
+          <label>Context</label>
+
+          <input type="text" name="context" class="form-control" ng-model="idiom.context">
+        </div>
+
+        <div class="form-group">
+          <label>Origin</label>
+
+          <input type="text" name="origin" class="form-control" ng-model="idiom.origin">
+        </div>
+
+        <div class="form-group">
+          <label>Example Usage</label>
+
+          <input type="text" name="example" class="form-control" ng-model="idiom.example">
+        </div>
+
+        <div class="form-group has-error">
+          <p class="help-block" ng-show="form.idiom.$error.required && submitted">
+             Please enter an idiom
+          </p>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-inverse btn-lg btn-login text-center" type="submit">
+            Submit
+          </button>
+          <button class="btn btn-inverse btn-lg btn-login text-center" ng-show="noIdiom" ng-click="addToUser()">Add to My Idioms</button>
+        </div>
+
+      </form>
+      </div>
+      <div class="col-md-6 text-center">
+        <h3>Definitions</h3>
+        <form class="form text-center" name="form" ng-submit="changeDef(word.def, word.word)" ng-repeat="word in idiom.words" novalidate>
+          <div class="form-group">
+          <label>{{ word.word }}</label>
+
+          <input type="text" name="idiom" class="form-control" ng-model="word.def" required>
+          </div>
+          <div class="text-center">
+          <button class="btn btn-inverse btn-lg btn-login text-center" type="submit">
+            Update
+          </button>
+          </div>
+        </form>
+      </div>
   </div>
 </div>

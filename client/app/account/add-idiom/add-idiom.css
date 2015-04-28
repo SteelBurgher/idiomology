@@ -10,3 +10,15 @@
 .add-menu a.active {
   color: blue;
 }
+.searchForm {
+  width: 60%;
+  margin: 0 auto;
+}
+.searchResult {
+  border: 3px solid purple;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin: 10px auto;
+  width: 70%;
+  font-size: 18px;
+}

@@ -35,6 +35,19 @@ exports.create = function (req, res, next) {
   });
 };
 
+exports.addIdiom = function(req, res) {
+  var userId = req.body.userId;
+  var newIdiom = req.body.idiom;
+  console.log(userId, newIdiom);
+
+  User.findById(userId, function (err, user) {
+    user.idioms.push(newIdiom);
+    user.save(function(err, user) {
+      console.log(user);
+    });
+  });
+};
+
 /**
  * Get a single user
  */
