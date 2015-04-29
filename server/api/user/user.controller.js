@@ -48,6 +48,23 @@ exports.addIdiom = function(req, res) {
   });
 };
 
+exports.getIdioms = function(req, res) {
+  var userId = req.body.userId;
+  User.findById(userId, function (err, user) {
+    res.send(user.idioms);
+  });
+}
+
+exports.addCollection = function(req, res) {
+  var userId = req.body.userId;
+  var newCollection = {name:req.body.collectionName, idioms: []};
+  User.findById(userId, function (err, user) {
+    user.collections.push(newCollection);
+    user.save(function(err, user) {
+      res.send(user);
+    });
+  });
+};
 /**
  * Get a single user
  */

@@ -1,7 +1,64 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="row">
-<div class="col-md-12">
+<div class="container">
   <h3 class="text-center">{{ getCurrentUser().name }}'s Idioms</h3>
+<div class="row add-menu">
+    <div class="col-md-6 border-right">
+    <h4 class="text-right"><a ng-class="{active: state === 'all'}" ng-click="getAll()">All</a></h4>
+    </div>
+    <div class="col-md-6">
+    <h4 class="text-left"><a ng-class="{active: state === 'collections'}" ng-click="getCollections()">Collections</a></h4>
+    </div>
+</div>
+<div ng-show="state === 'all'">
+  <div class='allOfUser' ng-repeat='idiom in userIdioms'>
+          <div class="row">
+            <div class='col-md-8'>
+              <p>{{ idiom.text }}</p>
+              <p>Context: {{ idiom.context }}</p>
+              <p>Origin:  {{ idiom.origin }}</p>
+              <p>"{{ idiom.example }}"</p>
+            </div>
+            <div class='col-md-4'><button class="btn btn-inverse btn-lg text-center" ng-click="showChooseBox(idiom)">Add To A Collection</button></div>
+          </div>
+  </div>
+</div>
+<div ng-show="state === 'collections'">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center">Create New Collection</h2>
+      <form class="form text-center collectionForm" name="searchForm" ng-submit="addCollection(collectionName)" novalidate>
+        <label>Collection Name</label>
+        <input type="text" name="collectionName" class="form-control" ng-model="collectionName">
+        <button class="btn btn-inverse btn-lg btn-login text-center" type="submit">Create</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class='allCollections text-center' ng-repeat='collection in collections'>
+        <h2>{{ collection.name }}<h2>
+        <button>Practice Collection</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='choose-box' ng-show='showChooseBox === true'>
+  <div ng-repeat="collection in collections">
+    {{ collection.name }}<button>Add</button>
+  </div>
+  <button ng-click="closeChooseBox()">Exit</button>
+</div>
+<div ng-show="state === 'practice'">
+  <div class='allOfUser' ng-repeat='idiom in getCurrentUser().idioms'>
+          <div class="row">
+            <div class='col-md-8'>
+              <p>{{ idiom.text }}</p>
+              <p>Context: {{ idiom.context }}</p>
+              <p>Origin:  {{ idiom.origin }}</p>
+              <p>"{{ idiom.example }}"</p>
+            </div>
+            <div class='col-md-4'><button class="btn btn-inverse btn-lg text-center" ng-click="showChooseBox()">Add To A Collection</button></div>
+          </div>
+  </div>
+</div>
 </div>
 </div>

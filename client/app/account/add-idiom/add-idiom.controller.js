@@ -30,9 +30,10 @@ angular.module('idiomologyApp')
     };
 
     $scope.addThisIdiom = function(idiom) {
+      console.log(idiom)
       $http.post('api/users/idioms', {
         userId: $scope.getCurrentUser()._id,
-        idiom: $scope.idiom
+        idiom: idiom
       })
       .success(function(data, status, headers, config) {
         console.log("added to User");

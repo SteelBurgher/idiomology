@@ -1,0 +1,29 @@
+.border-right {
+  border-right: 3px solid #999;
+}
+
+.add-menu a {
+  cursor: pointer;
+  color: purple;
+  text-decoration: none;
+}
+.add-menu a.active {
+  color: blue;
+}
+.allOfUser {
+  border: 3px solid purple;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin: 10px auto;
+  width: 70%;
+  font-size: 18px;
+}
+
+.choose-box {
+  width: 40%;
+  position: fixed;
+  margin: 0 auto;
+  top: 100px;
+  height: auto;
+  border: 10px solid black;
+}

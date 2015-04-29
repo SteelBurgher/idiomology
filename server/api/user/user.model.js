@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     default: 'user'
   },
   idioms: [],
+  collections: [],
   hashedPassword: String,
   provider: String,
   salt: String

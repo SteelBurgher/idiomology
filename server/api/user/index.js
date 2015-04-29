@@ -14,5 +14,7 @@ router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 router.post('/idioms', auth.isAuthenticated(), controller.addIdiom);
+router.post('/collections', auth.isAuthenticated(), controller.addCollection);
+router.post('/getIdioms', auth.isAuthenticated(), controller.getIdioms);
 
 module.exports = router;

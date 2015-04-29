@@ -16,17 +16,17 @@
         <input type="text" name="idiomQuery" class="form-control" ng-model="searchQuery">
         <button class="btn btn-inverse btn-lg btn-login text-center" type="submit">Search</button>
       </form>
-      <div class='searchResult' ng-repeat='idiom in searchResults | filter:searchQuery'>
+      <div class='searchResult' ng-repeat='theIdiom in searchResults | filter:searchQuery'>
         <div class="row">
-          <div class='col-md-9'>{{ idiom.text }}</div>
-          <div class='col-md-3'><button class="btn btn-inverse btn-lg text-center" ng-click="addThisIdiom(idiom)">Add To My Idioms</button></div>
+          <div class='col-md-9'>{{ theIdiom.text }}</div>
+          <div class='col-md-3'><button class="btn btn-inverse btn-lg text-center" ng-click="addThisIdiom(theIdiom)">Add To My Idioms</button></div>
         </div>
         <div class="row text-center">
-          <div class='col-md-6'>Context: {{ idiom.context }}</div>
-          <div class='col-md-6'>Origin:  {{ idiom.example }}</div>
+          <div class='col-md-6'>Context: {{ theIdiom.context }}</div>
+          <div class='col-md-6'>Origin:  {{ theIdiom.example }}</div>
         </div>
         <div class="row text-center">
-          <div>"{{ idiom.example }}"</div>
+          <div>"{{ theIdiom.example }}"</div>
         </div>
       </div>
     </div>
